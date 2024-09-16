@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block section %}
+<h2>TEAM</h2>
+<hr>
+{% endblock section %}
+{% load static %}
+{% block maincontent %}
+<div>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Shield</th>
+            <th>Team</th>
+            <th style="width: 30px;">Edit</th>
+            <th style="width: 30px;">Delete</th>
+        </tr>
+        {% for c in object_list %}
+            <tr>
+                <td>
+                    <a href="{% url 'team-detail' c.pk %}">
+                        {{ c.name }} <br>
+                    </a>
+                </td>
+                <td>
+                    <img src="{% static c.shield %}" style="width:50px;height:auto" />
+                </td>
+                <td>
+                    <img src="{% static c.team %}" style="width:50px;height:auto" />
+                </td>
+                <td style="width: 30px;">
+                    <a href="{% url 'team-update' c.id %}">
+                        <span style="color: green; display: flex; justify-content: center; align-items: center;" class="material-symbols-outlined">edit</span>
+                    </a>
+                </td>
+                <td style="width: 30px;">
+                    <a href="{% url 'team-delete' c.id %}">
+                        <span style="color: red; display: flex; justify-content: center; align-items: center;" class="material-symbols-outlined">delete</span>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock maincontent %}

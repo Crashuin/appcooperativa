@@ -1,0 +1,12 @@
+{% extends 'base.html' %} 
+{% block maincontent %}
+ <form action=""method="post">{% csrf_token %}
+     {% if object.get_oficinas.all.count == 0 %}
+        <p>Eliminar el equipo de "{{ object.name }}"?</p>
+        <input type="submit" value="Confirm" />
+     {% else %}
+        <p>No se puede eliminar</p>
+     {% endif %}
+     <a class='btn'href="{% url 'oficinas-list' %}">Cancel</a>
+ </form>
+{% endblock maincontent %}

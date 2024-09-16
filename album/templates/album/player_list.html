@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block section %}
+<h2>PLAYERS</h2>
+<hr>
+{% endblock section %}
+{% load static %}
+
+{% block maincontent %}
+<table>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Photo</th>
+        <th>Height</th>
+        <th>Weight</th>
+        <th>Comment</th>
+        <th>Team</th>
+        <th style="width: 30px;">Edit</th>
+        <th style="width: 30px;">Delete</th>
+    </tr>
+    {% for c in object_list %}
+        <tr>
+            <td>
+                <a href="{% url 'team-detail' c.id %}">
+                    {{ c.first_name }} <br>
+                </a>
+            </td>
+            <td>
+                <a href="{% url 'team-detail' c.id %}">
+                    {{ c.last_name }} <br>
+                </a>
+            </td>
+            <td>
+                <img src="{% static c.photo %}" style="width:100px;height:auto" />
+            </td>
+            <td style="width: 30px;">
+                {{c.height}}
+            </td>
+            <td style="width: 30px;">
+                {{c.weight}}
+            </td>
+            <td style="width: 30px;">
+                {{c.comment}}
+            </td>
+            <td style="width: 30px;">
+                {{c.team}}
+            </td>
+            <td style="width: 30px;">
+                <a href="{% url 'player-update' c.id %}">
+                    <span style="color: green; display: flex; justify-content: center; align-items: center;" class="material-symbols-outlined">edit</span>
+                </a>
+            </td>
+            <td style="width: 30px;">
+                <a href="{% url 'player-delete' c.id %}">
+                    <span style="color: red; display: flex; justify-content: center; align-items: center;" class="material-symbols-outlined">delete</span>
+                </a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock maincontent %}

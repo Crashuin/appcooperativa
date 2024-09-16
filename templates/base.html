@@ -1,0 +1,20 @@
+{% extends 'adminlte/base.html' %}
+{% load static %}
+{% block stylesheets %}
+    {% include 'adminlte/lib/_styles.html' %}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+{% endblock %}
+{% block title %}Asociación{% endblock %}
+{% block bodyclass %} skin-red {% endblock %}
+{% block content %}
+    <div class="container">
+        {% block section %}
+        {% endblock section %}
+    </div>
+    <div class="container">
+        {% block maincontent %}
+        {% endblock maincontent %}
+    </div>
+  
+{% endblock %}

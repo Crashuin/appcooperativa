@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block section %}
+    <h2>{{ object.name }}</h2>
+    <hr>
+{% endblock section %}
+
+{% block maincontent %}
+  <div class="container-players-by-team">
+      {% for p in object.get_oficinas.all %}
+         <div class="player-card">
+            <div class="name-player">{{ p.first_name }} {{ p.last_name }}</div>
+            <div class="img-player">
+               <a href="{% url "player-detail" p.id %}">
+                  <img class="img-temp" src="{% static p.photo %}" style="width:170px;height:200px"/>
+               </a>
+            </div>
+         </div>
+      {% endfor %}
+   </div>
+{% endblock maincontent %}
