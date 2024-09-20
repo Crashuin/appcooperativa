@@ -81,13 +81,17 @@ WSGI_APPLICATION = 'app_asociados.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "postgres",
-        "USER": "postgres",
-        "PASSWORD": config("DB_PASSWORD"),
-        "HOST": config("DB_HOST"),  # set in docker-compose.yml
-        "PORT": 5432,  # default postgres port
+    # "default": {
+    #     "ENGINE": "django.db.backends.postgresql",
+    #     "NAME": "postgres",
+    #     "USER": "postgres",
+    #     "PASSWORD": config("DB_PASSWORD"),
+    #     "HOST": config("DB_HOST"),  # set in docker-compose.yml
+    #     "PORT": 5432,  # default postgres port
+    # }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
