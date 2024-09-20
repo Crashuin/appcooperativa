@@ -40,10 +40,14 @@ tr:nth-child(even) {
     width: 200px;
 }
 
-/* .img-player {
-    border-radius: 0 20px 0 20px;
-} */
-
 .img-temp {
     border-radius: 0 20px;
+}
+
+.object-tools {
+    margin-top: 20px;
+}
+
+.nav-link {
+    padding: .5rem!important;
 }
