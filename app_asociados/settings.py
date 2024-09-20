@@ -30,6 +30,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'appcooperativa-eagcd2deg7dfcmat.westus-01.azurewebsites.net',
+    'localhost',
 ]
 
 
